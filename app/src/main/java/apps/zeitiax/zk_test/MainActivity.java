@@ -8,9 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,11 +27,15 @@ public class MainActivity extends ActionBarActivity {
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         Button button = (Button) findViewById(R.id.button1);
 
-        final LinkedList<String> list = new LinkedList<String>();
+        final List<String> list = new ArrayList<String>();
 
         list.add("Row 1");
         list.add("Row 2");
         list.add("Add new row..");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,5 +77,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showDialog() {
+        showAddNewRowDialog();
     }
 }
