@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.LinkedList;
@@ -22,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        Button button = (Button) findViewById(R.id.button1);
 
         final LinkedList<String> list = new LinkedList<String>();
 
@@ -29,17 +31,14 @@ public class MainActivity extends ActionBarActivity {
         list.add("Row 2");
         list.add("Add new row..");
 
-
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if (position == list.size()) {
-                    showAddNewRowDialog();
-                }
-
+            public void onClick(View v) {
+                showAddNewRowDialog();
             }
         });
+
+
 
     }
 
