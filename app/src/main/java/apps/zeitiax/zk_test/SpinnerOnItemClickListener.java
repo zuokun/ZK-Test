@@ -16,7 +16,7 @@ public class SpinnerOnItemClickListener implements AdapterView.OnItemClickListen
         if (parent.getAdapter().getCount() == position) {
 
         } else {
-            Toast.makeText(view, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(TestApp.getContext(), parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
         }
 
     }
