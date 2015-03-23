@@ -16,8 +16,8 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
-    Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-    Button button = (Button) findViewById(R.id.button1);
+    private Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+    private Button button = (Button) findViewById(R.id.button1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
-        addListenerOnSpinnerItemSelection();
+        //addListenerOnSpinnerItemSelection();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
