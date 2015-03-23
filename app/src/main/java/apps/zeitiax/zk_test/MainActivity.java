@@ -1,19 +1,16 @@
 package apps.zeitiax.zk_test;
 
-import android.app.DialogFragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -36,6 +33,8 @@ public class MainActivity extends ActionBarActivity {
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
+
+        SpinnerOnItemClickListener listener = new SpinnerOnItemClickListener();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
