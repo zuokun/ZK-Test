@@ -16,13 +16,13 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
+    Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+    Button button = (Button) findViewById(R.id.button1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-        Button button = (Button) findViewById(R.id.button1);
 
         final List<String> list = new ArrayList<String>();
 
@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
-        SpinnerOnItemClickListener listener = new SpinnerOnItemClickListener();
+        addListenerOnSpinnerItemSelection();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +44,13 @@ public class MainActivity extends ActionBarActivity {
         });
 
 
+
+    }
+
+    private void addListenerOnSpinnerItemSelection() {
+
+        spinner = (Spinner) findViewById(R.id.spinner1);
+        spinner.setOnItemClickListener(new SpinnerOnItemClickListener());
 
     }
 
